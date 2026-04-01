@@ -1,4 +1,4 @@
-package icd3.commerce.beteacher.sbb;
+package icd3.commerce.beteacher.entity;
 
 import java.time.LocalDateTime;
 
@@ -7,18 +7,24 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class Lectures {
+@Entity
+public class Keyword {
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	private String name;
+	@ManyToOne
+	Category categories;
+
+	private String keyword;
+
+	private String content;
 
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
