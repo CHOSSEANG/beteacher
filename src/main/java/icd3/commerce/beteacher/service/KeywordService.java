@@ -27,11 +27,10 @@ public class KeywordService {
 			.orElseThrow(() -> new IllegalArgumentException("Keyword not found"));
 	}
 
-	public String delete(long keywordId){
+	public void delete(long keywordId){
 		keywordRepository.findById(keywordId)
 			.orElseThrow(() -> new IllegalArgumentException("Keyword not found"));
 		keywordRepository.deleteById(keywordId);
 
-		return "Keyword deleted successfully";
 	}
 }
