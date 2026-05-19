@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Keyword {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@ManyToOne
 	Category categories;
