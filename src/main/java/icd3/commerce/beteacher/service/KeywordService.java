@@ -23,7 +23,8 @@ public class KeywordService {
 	}
 
 	public Keyword read(long keywordId){
-		return keywordRepository.findById(keywordId).get();
+		return keywordRepository.findById(keywordId)
+			.orElseThrow(() -> new IllegalArgumentException("Keyword not found"));
 	}
 
 	public String delete(long keywordId){
