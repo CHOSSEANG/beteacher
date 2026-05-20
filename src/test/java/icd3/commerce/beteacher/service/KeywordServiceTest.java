@@ -6,10 +6,12 @@ import static org.mockito.BDDMockito.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import icd3.commerce.beteacher.entity.Keyword;
 import icd3.commerce.beteacher.repository.KeywordRepository;
 
+@SpringBootTest
 class KeywordServiceTest {
 
 	@Mock
