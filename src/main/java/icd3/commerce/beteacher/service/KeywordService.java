@@ -31,6 +31,5 @@ public class KeywordService {
 		keywordRepository.findById(keywordId)
 			.orElseThrow(() -> new IllegalArgumentException("Keyword not found"));
 		keywordRepository.deleteById(keywordId);
-
 	}
 }

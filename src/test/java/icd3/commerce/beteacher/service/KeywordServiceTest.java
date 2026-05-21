@@ -73,4 +73,15 @@ class KeywordServiceTest {
 
 		verify(keywordRepository).deleteById(1L);
 	}
+
+	@Test
+	void 키워드_삭제_키워드_존재하지_않는_ID_실패() {
+		// given
+		given(keywordRepository.findById(999L)).willReturn(Optional.empty());
+
+		// when & then
+		assertThatThrownBy(() -> keywordService.delete(999L))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessage("Keyword not found");
+	}
 }
