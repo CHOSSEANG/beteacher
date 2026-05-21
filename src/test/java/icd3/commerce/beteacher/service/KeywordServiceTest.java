@@ -31,7 +31,14 @@ class KeywordServiceTest {
 	}
 
 	@Test
-	void update() {
+	void 키워드_수정_성공() {
+		Keyword keyword = Keyword.builder().id(1L).keyword("keyword1").content("content1").build();
+		Keyword keyword2 = Keyword.builder().id(1L).keyword("keyword2").content("content2").build();
+
+		given(keywordRepository.findById(1L)).willReturn(java.util.Optional.of(keyword));
+		given(keywordRepository.save(keyword2)).willReturn(keyword2);
+
+		assertThat(keywordService.update(keyword2)).isEqualTo(keyword2);
 	}
 
 	@Test
