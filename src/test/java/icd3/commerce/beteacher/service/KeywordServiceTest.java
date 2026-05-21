@@ -62,4 +62,15 @@ class KeywordServiceTest {
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("Keyword not found");
 	}
+
+	@Test
+	void 키워드_삭제_성공(){
+		Keyword keyword = Keyword.builder().id(1L).keyword("keyword1").content("content1").build();
+
+		given(keywordRepository.findById(1L)).willReturn(java.util.Optional.of(keyword));
+
+		keywordService.delete(1L);
+
+		verify(keywordRepository).deleteById(1L);
+	}
 }
