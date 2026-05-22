@@ -28,8 +28,6 @@ public class Keyword {
 	@ManyToOne
 	Category categories;
 
-	private String keyword;
-
 	private String content;
 
 	@Column(name = "created_at")
