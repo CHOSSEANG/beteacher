@@ -28,8 +28,6 @@ public class Keyword {
 	@ManyToOne
 	Category categories;
 
-	private String content;
-
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
 
