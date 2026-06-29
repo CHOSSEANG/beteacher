@@ -8,4 +8,6 @@ import icd3.commerce.beteacher.entity.Member;
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {
 	Member findByName(String name);
+
+	Member findByEmail(String email);
 }
