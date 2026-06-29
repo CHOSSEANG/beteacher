@@ -32,7 +32,7 @@ public class Keyword {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
-	private User user;
+	private Member member;
 
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
