@@ -4,9 +4,11 @@ import org.springframework.stereotype.Service;
 
 import icd3.commerce.beteacher.entity.Member;
 import icd3.commerce.beteacher.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MemberService {
 
