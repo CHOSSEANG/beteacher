@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import icd3.commerce.beteacher.entity.Member;
-import icd3.commerce.beteacher.repository.MemberRepository;
 import icd3.commerce.beteacher.service.MemberService;
 import lombok.RequiredArgsConstructor;
 
