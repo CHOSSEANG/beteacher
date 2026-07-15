@@ -16,8 +16,10 @@ public class MemberController {
 
 	private final MemberService memberService;
 
-	@PostMapping
-	public Member signUp(@RequestBody Member member) {
+	@PostMapping("/signup")
+	public Member signUp(@RequestBody MemberJoinRequest request) {
+
+		Member member = request.toEntity();
 
 		return memberService.save(member);
 	}
