@@ -26,6 +26,12 @@ public class MemberService {
 		return memberRepository.save(member);
 	}
 
+	public Member signUp(Member member) {
+		validateDuplicateMember(member);
+
+		return memberRepository.save(member);
+	}
+
 	private void validateDuplicateMember(Member member){
 		Member findMember = memberRepository.findByEmail(member.getEmail());
 		if(findMember != null){
