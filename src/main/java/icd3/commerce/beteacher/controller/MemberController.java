@@ -19,13 +19,13 @@ public class MemberController {
 	private final PasswordEncoder passwordEncoder;
 
 	@PostMapping("/signup")
-	public Member signUp(@RequestBody MemberJoinRequest request) {
+	public MemberJoinResponse signUp(@RequestBody MemberJoinRequest request) {
 		String encodedPassword = passwordEncoder.encode(request.getPassword());
 
 		Member member = request.toEntity();
 
 		member.setPassword(encodedPassword);
 
-		return memberService.signUp(member);
+		return MemberJoinResponse.from(memberService.signUp(member));
 	}
 }
