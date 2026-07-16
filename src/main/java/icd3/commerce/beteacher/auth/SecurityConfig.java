@@ -1,5 +1,6 @@
 package icd3.commerce.beteacher.auth;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -22,12 +23,15 @@ public class SecurityConfig {
 		http.csrf(AbstractHttpConfigurer::disable);
 
 		http.authorizeHttpRequests(auth -> auth
-			.anyRequest().permitAll());
+			.requestMatchers("/","/login","/signup").permitAll()
+			.requestMatchers(PathRequest.toH2Console()).permitAll()
+			.anyRequest().authenticated());
 
 		http.headers(headers -> headers
 			.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
 
-		http.formLogin(Customizer.withDefaults());
+		http.formLogin(Customizer.withDefaults())
+			.logout(Customizer.withDefaults());
 
 		return http.build();
 	}
